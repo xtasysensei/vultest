@@ -91,7 +91,7 @@ def main():
 {yellow}SQLi Scan cancelled {end}
 ************************
 """)
-                quit()                         
+                sys.exit()
             except:
                 pass
 
