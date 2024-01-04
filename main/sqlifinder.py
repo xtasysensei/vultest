@@ -7,6 +7,8 @@ import time
 import requests
 import string
 
+sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]))
+
 from lib.colors import *
 from core import requester
 from core import extractor
@@ -26,11 +28,6 @@ def clear():
 
 def banner():
     ban = '''
-            ___ ____         __       
-  ___ ___ _/ (_) _(_)__  ___/ /__ ____
- (_-</ _ `/ / / _/ / _ \/ _  / -_) __/
-/___/\_, /_/_/_//_/_//_/\_,_/\__/_/   
-      /_/        ~ by @americo        v1.0 
       '''
 
     print(ban)
@@ -87,9 +84,16 @@ def main():
 {red}[!]{purple}[sql-injection] {end} {red}{final_url}{end}
 {red}#{yellow}--------------------{red}#{end}
 """)
-                    break                           
+                    break
+            except KeyboardInterrupt:
+                print(f"""
+************************
+{yellow}SQLi Scan cancelled {end}
+************************
+""")
+                quit()                         
             except:
                 pass
 
 if __name__ == "__main__":
-    main()
+      main()

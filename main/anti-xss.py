@@ -1,23 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__Name__ = "scancss"
-__description__ = "scancss is a xss vulnariblity scanner tool."
-__author__ = "Md. Nur habib"
-__copyright__ = "Copyright 2022."
-__license__ = "GNU v.20"
-__version__ = "v1.0.1"
-__email__ = "thenurhabib@gmail.com"
-
-
 # Import Modules.
 import argparse
-from core.core import *
+import os
+import sys
+
+sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]))
+
 from random import randint
-from lib.Log import *
 from lib.helper import *
 from lib.crawler import *
-
+from lib.Log import *
+from core.core import *
 
 # Style class
 class Style:
@@ -34,9 +29,6 @@ class Style:
 
 epilog = f"""
 ==================================================
-GitHub: https://www.github.com/thenurhabib/scancss
-Version : {__version__}
-
 """
 
 
@@ -98,7 +90,6 @@ def start():
     elif getopt.single:
         core.main(getopt.single, getopt.proxy, getopt.user_agent,
                   check(getopt), getopt.cookie, getopt.method)
-
     elif getopt.about:
         print(f"""
 ***************
@@ -111,4 +102,11 @@ Please Don't Use it for Any Bad or Illegal Purpose.
 
 
 if __name__ == "__main__":
-    start()
+    try:
+      start()
+    except KeyboardInterrupt:
+      print(f"""
+************************
+{yellow}Xss Scan cancelled {end}
+************************
+""")
