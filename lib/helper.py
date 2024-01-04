@@ -41,10 +41,5 @@ def session(proxies, headers, cookie):
 
 
 logo = f"""{Style.bold}{Style.yellow}
-       ___          __  _      _  ____________
-   /   |  ____  / /_(_)    | |/ / ___/ ___/
-  / /| | / __ \/ __/ /_____|   /\__ \\__ \ 
- / ___ |/ / / / /_/ /_____/   |___/ /__/ / 
-/_/  |_/_/ /_/\__/_/     /_/|_/____/____/     {Style.reset}{Style.red}{__version__}{Style.yellow}  
    Anti Xss scanner ======================================================
 {Style.reset} \n\n"""

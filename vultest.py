@@ -1,11 +1,11 @@
 import os
 from lib.colors import *
 print(f"""
-     {bold}Web Security SCANNER{end}
+     {bold}Vultest{end}
 """)
-print("What do you want to test for?")
-print(f"    {yellow}[#][1]{end} {blue}XSS{end}")
-print(f"    {yellow}[#][2]{end} {blue}SQL Injection{end}")
+print("[*] What do you want to test for?")
+print(f"    {gray}[#][1]{end} {blue}XSS{end}")
+print(f"    {gray}[#][2]{end} {blue}SQL Injection{end}")
 print(" ")
 option = input("[+] Select: ")
 

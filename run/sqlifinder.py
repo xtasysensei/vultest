@@ -25,7 +25,9 @@ def clear():
         os.system('cls')
 
 def banner():
-    ban = ''
+    ban = '''
+      '''
+
     print(ban)
 
 def concatenate_list_data(list, result):

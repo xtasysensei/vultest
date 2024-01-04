@@ -1,9 +1,3 @@
-__author__ = 'Err0r_HB'
-__version__ = '0.3#beta'
-__github__ = 'https://github.com/Err0r-ICA/SCANter'
-__email__ = 'error_hb@protonmail.com'
-__blog__ = 'https://t.me/termuxhacks'
-
 import sys
 import os
 import platform
