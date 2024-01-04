@@ -41,7 +41,7 @@ def check(getopt):
             Log.info("Write the XSS payload below")
             payload = input("> {W}")
         else:
-            payload = core.generate(randint(1, 6))
+            payload = core.generate(radint(0, 6))
 
     else:
         payload = core.generate(payload)
@@ -61,7 +61,7 @@ def start():
     pos_opt.add_argument("--depth", metavar="",
                          help="Depth web page to crawl. Default: 2", default=2)
     pos_opt.add_argument("--payload-level", metavar="",
-                         help="Level for payload Generator, 7 for custom payload. {1...6}. Default: 6", default=6)
+                         help="Level for payload Generator, 7 for custom payload. {1...6}. Default: 6", default=6) 
     pos_opt.add_argument("--payload", metavar="",
                          help="Load custom payload directly (e.g. <script>alert(2005)</script>)", default=None)
     pos_opt.add_argument("--method", metavar="",

