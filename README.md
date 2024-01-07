@@ -2,8 +2,8 @@
  
 <h4 align="center">Automatic Web Vulnerability Scanner</h4>
 
-This is a terminal-based web vulnerability scanner.
-It is a Python script that test a given URL against well-known vulnerabilities.
+Vultest is a terminal-based web vulnerability scanner written in **Python**.
+It is a script that crawls and tests a given URL against well-known vulnerabilities.
 
 ## Main Features
 
