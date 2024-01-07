@@ -1,6 +1,6 @@
-<h1 align="center">🕷Vultest 🕷</h1>
+# 🕷Vultest 🕷
  
-<h4 align="center">Automatic Web Vulnerability Scanner</h4>
+## Automatic Web Vulnerability Scanner
 
 This is a terminal-based web vulnerability scanner.
 It is a Python script that test a given URL against well-known vulnerabilities.
