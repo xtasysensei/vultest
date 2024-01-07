@@ -1,6 +1,6 @@
 # 🕷Vultest 🕷
  
-Automatic Web Vulnerability Scanner
+## Automatic Web Vulnerability Scanner
 
 Vultest is a terminal-based web vulnerability scanner written in **Python**.
 It is a script that crawls and tests a given URL against well-known vulnerabilities.
