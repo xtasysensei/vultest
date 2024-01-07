@@ -31,7 +31,7 @@ Then run:
 ```bash
 git clone https://github.com/xtasysensei/vultest.git
 cd vultest
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 ## Usage
