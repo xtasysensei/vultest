@@ -17,6 +17,7 @@ It is a script that crawls and tests a given URL against well-known vulnerabilit
 
 - Linux
 - Windows
+- MacOS
 
 ## Tools
 
