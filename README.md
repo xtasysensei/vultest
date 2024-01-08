@@ -1,6 +1,6 @@
-<h1 align="center"> 🕷Vultest 🕷<h1>
+<h1 align="center"> 🕷Vultest 🕷</h1>
 
- <h2 align="center"> Automatic Web Vulnerability Scanner<h2>
+ <h2 align="center"> Automatic Web Vulnerability Scanner</h2>
 
 Vultest is a terminal-based web vulnerability scanner written in **Python**.
 It is a script that crawls and tests a given URL against well-known vulnerabilities.
