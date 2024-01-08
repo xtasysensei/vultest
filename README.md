@@ -1,9 +1,9 @@
-# 🕷Vultest 🕷
- 
-## Automatic Web Vulnerability Scanner
+<h1 align="center"> 🕷Vultest 🕷<h1>
 
-This is a terminal-based web vulnerability scanner.
-It is a Python script that test a given URL against well-known vulnerabilities.
+ <h2 align="center"> Automatic Web Vulnerability Scanner<h2>
+
+Vultest is a terminal-based web vulnerability scanner written in **Python**.
+It is a script that crawls and tests a given URL against well-known vulnerabilities.
 
 ## Main Features
 
@@ -31,7 +31,7 @@ Then run:
 ```bash
 git clone https://github.com/xtasysensei/vultest.git
 cd vultest
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 ## Usage
