@@ -60,22 +60,23 @@ class core:
             "<svg onload=write()>"
         ]
         if eff == 1:
-            return FUNCTION[randint(5, 20)]
+            return FUNCTION[randint(5, 9)]
+
 
         elif eff == 2:
-            return FUNCTION[randint(5, 20)]
+            return FUNCTION[randint(10, 14)]
 
         elif eff == 3:
-            return FUNCTION[randint(5, 20)]
+            return FUNCTION[randint(15, 20)]
 
         elif eff == 4:
-            return FUNCTION[randint(5, 20)]
+            return FUNCTION[randint(5, 9)]
 
         elif eff == 5:
-            return FUNCTION[randint(5, 20)]
+            return FUNCTION[randint(10, 14)]
 
         elif eff == 6:
-            return FUNCTION[randint(5, 20)]
+            return FUNCTION[randint(15, 20)]
  
     @classmethod
     def post_method(self):
