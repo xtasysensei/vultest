@@ -30,15 +30,15 @@ It is a script that crawls and tests a given URL against well-known vulnerabilit
 You must have python installed in the OS of choice.
 Then run:
 ```bash
-git clone https://github.com/xtasysensei/vultest.git
-cd vultest
-python3 -m pip install -r requirements.txt
+$ git clone https://github.com/xtasysensei/vultest.git
+$ cd vultest
+$ pip install -r requirements.txt
 ```
 
 ## Usage
 Run:
 ```bash
-python3 vultest.py
+$ python3 vultest.py
 ```
 
 Follow the prompt that comes up.
