@@ -4,6 +4,7 @@
 
 Vultest is a terminal-based web vulnerability scanner written in **Python**.
 It is a script that crawls and tests a given URL against well-known vulnerabilities.
+## Screenshots
 
 ## Main Features
 
