@@ -8,7 +8,7 @@ It is a script that crawls and tests a given URL against well-known vulnerabilit
 ## Main Features
 
 - Reflected XSS scanning
-- Blind xss find
+- Blind XSS find
 - SQL injection scanning
 - Crawling all links on a website
 - POST and GET forms are supported
