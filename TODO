@@ -1,0 +1,9 @@
+- echo each vulnerability found into a text file for later review
+
+## This should be before the loop
+printf "Vulnerabiliy list for XSS\n---------------\n" > XSS-vul.txt
+printf "Vulnerabiliy list for SQLi\n---------------\n" > SQLi-vul.txt
+
+## This should be inside the loop
+printf"[%d]\t%s\n\n" i,payload + url >> vul.txt
+or printf"[*]\t%s\n\n" i,payload + url >> vul.txt
