@@ -113,12 +113,12 @@ class core:
                 req = self.session.post(urljoin(self.url, action), data=keys)
                 if self.payload in req.text:
                     print(f"""
-\033[91m#{yellow}{bold}--------------------------------{end}\033[91m#{end}
+\033[91m#{yellow}{bold}----------------------------------------------------------------------{end}\033[91m#{end}
 {red}{bold}[Critical]{end}
 {bold}{good}{bold} Detected XSS (POST) at : {blue}{urljoin(self.url, req.url)}{end}
 {info}{bold} Payload : \033[91m{self.payload}{end}
 {info}{bold} Exploit : \033[91m{key["name"]+N+" value: "+G+self.payload}{end}
-\033[91m#{yellow}{bold}--------------------------------{end}\033[91m#{end}
+\033[91m#{yellow}{bold}----------------------------------------------------------------------{end}\033[91m#{end}
 """)   
                 else:
                     Log.info(
@@ -166,12 +166,12 @@ class core:
                 req = self.session.get(urljoin(self.url, action), params=keys)
                 if self.payload in req.text:
                     print(f"""
-\033[91m#{yellow}{bold}--------------------------------{end}\033[91m#{end}
+\033[91m#{yellow}{bold}----------------------------------------------------------------------{end}\033[91m#{end}
 {red}{bold}[Critical]{end}
 {bold}{good}{bold} Detected XSS (GET) at : {blue}{urljoin(self.url, req.url)}{end}
 {info}{bold} Payload : \033[91m{self.payload}{end}
 {info}{bold} Exploit : \033[91m{keys}{end}
-\033[91m#{yellow}{bold}--------------------------------{end}\033[91m#{end}
+\033[91m#{yellow}{bold}----------------------------------------------------------------------{end}\033[91m#{end}
 """)   
                 else:
                     Log.info("Not vulnerable.")
@@ -202,10 +202,10 @@ class core:
                     _respon = self.session.get(test)
                     if self.payload in _respon.text or self.payload in self.session.get(query_all).text:
                         print(f"""
-\033[91m#{yellow}{bold}--------------------------------{end}\033[91m#{end}
+\033[91m#{yellow}{bold}----------------------------------------------------------------------{end}\033[91m#{end}
 {red}{bold}[Critical]{end}
 {bold}{good}{bold} Detected XSS (GET) at : {blue}{_respon.url}{end}
-\033[91m#{yellow}{bold}--------------------------------{end}\033[91m#{end}
+\033[91m#{yellow}{bold}----------------------------------------------------------------------{end}\033[91m#{end}
 """)       
                     else:
                         Log.info(

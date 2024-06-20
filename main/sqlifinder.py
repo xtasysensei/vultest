@@ -80,9 +80,9 @@ def main():
                 print(f"""{yellow}[*] Testing {end}{blue}{uri}{end}{red}{payload}{end}""")
                 if 'SQL' in res or 'sql' in res or 'Sql' in res:
                     print(f"""
-{red}#{yellow}--------------------{red}#{end}
+{red}#{yellow}------------------------------------------------------------------------------------------{red}#{end}
 {red}[!]{purple}[sql-injection] {end} {red}{final_url}{end}
-{red}#{yellow}--------------------{red}#{end}
+{red}#{yellow}------------------------------------------------------------------------------------------{red}#{end}
                         """)
                     break
             except KeyboardInterrupt:

@@ -1,6 +1,8 @@
 import requests
 import random
+from frosch import hook
 
+hook()
 
 def connector(url):
     result = False
