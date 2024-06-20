@@ -62,7 +62,6 @@ class core:
         if eff == 1:
             return FUNCTION[randint(5, 9)]
 
-
         elif eff == 2:
             return FUNCTION[randint(10, 14)]
 
