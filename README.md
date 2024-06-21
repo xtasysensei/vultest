@@ -36,17 +36,21 @@ Then run:
 ```bash
 $ git clone https://github.com/xtasysensei/vultest.git
 $ cd vultest
+
+# installing project dependencies found in pyproject.toml
 $ poetry install
 ```
 ### Python environment
 
-A better alternative is to create a python environment in the cloned directory and install the dependencies there.
-Follow the python official documentation on virtual environments [here](https://docs.python.org/3/library/venv.html)
+[Python Poetry](https://realpython.com/dependency-management-python-poetry/) will handle the activation and creation of the virtual environment.
 
 ## Usage
 Run:
 ```bash
+# activating virtual environment
 $ poetry shell
+
+# running the application
 $ poetry run python vultest.py
 ```
 
