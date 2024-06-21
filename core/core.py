@@ -24,10 +24,6 @@ class Style:
     yellow = '\033[93m'
 
 
-
-
-
-
 class core:
 
     @classmethod
@@ -76,12 +72,12 @@ class core:
 
         elif eff == 6:
             return FUNCTION[randint(15, 20)]
- 
+
     @classmethod
     def post_method(self):
         bsObj = BeautifulSoup(self.body, "html.parser")
         forms = bsObj.find_all("form", method=True)
-
+        vuln_logger = VulnerabilityLogger()
         for form in forms:
             try:
                 action = form["action"]
@@ -90,7 +86,7 @@ class core:
 
             if form["method"].lower().strip() == "post":
                 Log.warning("Target have form with POST method: " +
-                            C+urljoin(self.url, action))
+                            C + urljoin(self.url, action))
                 Log.info("Collecting form input key.....")
 
                 keys = {}
@@ -98,16 +94,16 @@ class core:
                     try:
                         if key["type"] == "submit":
                             Log.info(
-                                "Form key name: "+G+key["name"]+N+" value: "+G+"<Submit Confirm>")
+                                "Form key name: " + G + key["name"] + N + " value: " + G + "<Submit Confirm>")
                             keys.update({key["name"]: key["name"]})
 
                         else:
-                            Log.info("Form key name: "+G +
-                                     key["name"]+N+" value: "+G+self.payload)
+                            Log.info("Form key name: " + G +
+                                     key["name"] + N + " value: " + G + self.payload)
                             keys.update({key["name"]: self.payload})
 
                     except Exception as e:
-                        Log.info("Internal error: "+str(e))
+                        Log.info("Internal error: " + str(e))
 
                 Log.info("Sending payload (POST) method...")
                 req = self.session.post(urljoin(self.url, action), data=keys)
@@ -117,27 +113,30 @@ class core:
 {red}{bold}[Critical]{end}
 {bold}{good}{bold} Detected XSS (POST) at : {blue}{urljoin(self.url, req.url)}{end}
 {info}{bold} Payload : \033[91m{self.payload}{end}
-{info}{bold} Exploit : \033[91m{key["name"]+N+" value: "+G+self.payload}{end}
+{info}{bold} Exploit : \033[91m{key["name"] + N + " value: " + G + self.payload}{end}
 \033[91m#{yellow}{bold}----------------------------------------------------------------------{end}\033[91m#{end}
-""")   
+""")
+
+                    vuln_logger.log_vulnerability("POST", urljoin(self.url, req.url), self.payload, keys)
                 else:
                     Log.info(
                         "This page is safe from XSS (POST) attack but not 100% yet...")
 
     @classmethod
     def get_method_form(self):
+        vuln_logger = VulnerabilityLogger()
         bsObj = BeautifulSoup(self.body, "html.parser")
         forms = bsObj.find_all("form", method=True)
-
         for form in forms:
             try:
+                action = form["action"]
                 action = form["action"]
             except KeyError:
                 action = self.url
 
             if form["method"].lower().strip() == "get":
                 Log.warning("Target have form with GET method: " +
-                            C+urljoin(self.url, action))
+                            C + urljoin(self.url, action))
                 Log.info("Collecting form input key.....")
 
                 keys = {}
@@ -145,22 +144,22 @@ class core:
                     try:
                         if key["type"] == "submit":
                             Log.info(
-                                "Form key name: "+G+key["name"]+N+" value: "+G+"<Submit Confirm>")
+                                "Form key name: " + G + key["name"] + N + " value: " + G + "<Submit Confirm>")
                             keys.update({key["name"]: key["name"]})
 
                         else:
-                            Log.info("Form key name: "+G +
-                                     key["name"]+N+" value: "+G+self.payload)
+                            Log.info("Form key name: " + G +
+                                     key["name"] + N + " value: " + G + self.payload)
                             keys.update({key["name"]: self.payload})
 
                     except Exception as e:
-                        Log.info("Internal error: "+str(e))
+                        Log.info("Internal error: " + str(e))
                         try:
-                            Log.info("Form key name: "+G +
-                                     key["name"]+N+" value: "+G+self.payload)
+                            Log.info("Form key name: " + G +
+                                     key["name"] + N + " value: " + G + self.payload)
                             keys.update({key["name"]: self.payload})
                         except KeyError as e:
-                            Log.info("Internal error: "+str(e))
+                            Log.info("Internal error: " + str(e))
 
                 Log.info("Sending payload (GET) method...")
                 req = self.session.get(urljoin(self.url, action), params=keys)
@@ -172,32 +171,36 @@ class core:
 {info}{bold} Payload : \033[91m{self.payload}{end}
 {info}{bold} Exploit : \033[91m{keys}{end}
 \033[91m#{yellow}{bold}----------------------------------------------------------------------{end}\033[91m#{end}
-""")   
+""")
+
+                    vuln_logger.log_vulnerability("GET", urljoin(self.url, req.url), self.payload, keys)
                 else:
                     Log.info("Not vulnerable.")
 
     @classmethod
     def get_method(self):
+        vuln_logger = VulnerabilityLogger()
         bsObj = BeautifulSoup(self.body, "html.parser")
         links = bsObj.find_all("a", href=True)
         for a in links:
             url = a["href"]
-            if url.startswith("http://") is False or url.startswith("https://") is False or url.startswith("mailto:") is False:
+            if url.startswith("http://") is False or url.startswith("https://") is False or url.startswith(
+                    "mailto:") is False:
                 base = urljoin(self.url, a["href"])
                 query = urlparse(base).query
                 if query != "":
-                    Log.warning("Found link with query: "+G +
-                                query+N+" Maybe a vulnerable XSS point.")
+                    Log.warning("Found link with query: " + G +
+                                query + N + " Maybe a vulnerable XSS point.")
 
                     query_payload = query.replace(
-                        query[query.find("=")+1:len(query)], self.payload, 1)
+                        query[query.find("=") + 1:len(query)], self.payload, 1)
                     test = base.replace(query, query_payload, 1)
 
                     query_all = base.replace(query, urlencode(
                         {x: self.payload for x in parse_qs(query)}))
 
-                    Log.info("Query (GET) : "+test)
-                    Log.info("Query (GET) : "+query_all)
+                    Log.info("Query (GET) : " + test)
+                    Log.info("Query (GET) : " + query_all)
 
                     _respon = self.session.get(test)
                     if self.payload in _respon.text or self.payload in self.session.get(query_all).text:
@@ -206,7 +209,9 @@ class core:
 {red}{bold}[Critical]{end}
 {bold}{good}{bold} Detected XSS (GET) at : {blue}{_respon.url}{end}
 \033[91m#{yellow}{bold}----------------------------------------------------------------------{end}\033[91m#{end}
-""")       
+""")
+
+                        vuln_logger.log_vulnerability("GET", _respon.url, self.payload)
                     else:
                         Log.info(
                             "This page is safe from XSS (GET) attack but not 100% yet...")
@@ -214,24 +219,24 @@ class core:
     @classmethod
     def main(self, url, proxy, headers, payload, cookie, method=2):
 
-        print(W+"*"*15)
+        print(W + "*" * 15)
         self.payload = payload
         self.url = url
 
         self.session = session(proxy, headers, cookie)
-        Log.info("Checking connection to: "+Y+url)
+        Log.info("Checking connection to: " + Y + url)
         try:
             ctr = self.session.get(url)
             self.body = ctr.text
         except Exception as e:
-            Log.high("Internal error: "+str(e))
+            Log.high("Internal error: " + str(e))
             return
 
         if ctr.status_code > 400:
-            Log.info("Connection failed "+G+str(ctr.status_code))
+            Log.info("Connection failed " + G + str(ctr.status_code))
             return
         else:
-            Log.info("Connection estabilished "+G+str(ctr.status_code))
+            Log.info("Connection estabilished " + G + str(ctr.status_code))
 
         if method >= 2:
             self.post_method()
@@ -244,3 +249,19 @@ class core:
         elif method == 0:
             self.get_method()
             self.get_method_form()
+
+
+class VulnerabilityLogger:
+    @classmethod
+    def log_vulnerability(cls, method, url, payload, keys=None):
+        vulnerabilities_dir = "vulnerabilities"
+        os.makedirs(vulnerabilities_dir, exist_ok=True)
+
+        with open(os.path.join(vulnerabilities_dir, "vulnerabilities.txt"), "a") as f:
+            f.write(f"---------------[Xss found!]-----------------\n")
+            f.write(f"Method: {method}\n")
+            f.write(f"URL: {url}\n")
+            f.write(f"Payload: {payload}\n")
+            if keys:
+                f.write(f"Keys: {keys}\n")
+            f.write("\n")
