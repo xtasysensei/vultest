@@ -36,7 +36,7 @@ def connector(url):
     user_agent = random.choice(user_agent_list)
     headers = {'User-Agent': user_agent}
     try:
-        # TODO control request headers in here
+        # TODO.todo control request headers in here
         response = requests.get(url,headers=headers ,timeout=30)
         result = response.text
     except requests.ConnectionError as e:

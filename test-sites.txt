@@ -1,4 +1,4 @@
-http://testphp.vulnweb.com/ (xss and sql)
-http://php.testsparker.com/ (sql)
-http://google-gruyere.appspot.com/start (xss & sql)
-http://php.testsparker.com/process.php?file=Generics/index.nsp (xss)
+1. http://testphp.vulnweb.com/ (xss and sql)
+2. http://php.testsparker.com/ (sql)
+3. http://google-gruyere.appspot.com/start (xss & sql)
+4. http://php.testsparker.com/process.php?file=Generics/index.nsp (xss)
