@@ -5,15 +5,6 @@
 import json
 import requests
 
-__Name__ = "scancss"
-__description__ = "scancss is a xss vulnariblity scanner tool."
-__author__ = "Md. Nur habib"
-__copyright__ = "Copyright 2022."
-__license__ = "GNU v.20"
-__version__ = "v1.0.1"
-__email__ = "thenurhabib@gmail.com"
-
-
 # Style class
 class Style:
     reset = '\033[0m'
