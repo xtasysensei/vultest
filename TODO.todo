@@ -1,0 +1,22 @@
+# TODO List
+
+## High Priority
+- [ ] Optimize code, remove help and usage parameters
+- [ ] Better error handling in case of bad URL input
+- [ ] Better error handling in case of keyboard interrupt (Ctrl+C)
+- [ ] Update README to include screenshots
+
+## Low Priority
+- [ ] Create a prototype of a GUI for the application
+
+## Completed
+- [x] Echo each vulnerability found into a text file for later review
+
+## Notes
+### This should be before the loop
+- printf "Vulnerability list for XSS\n---------------\n" > XSS-vul.txt
+- printf "Vulnerability list for SQLi\n---------------\n" > SQLi-vul.txt
+
+### This should be inside the loop
+- printf "[%d]\t%s\n\n" i, payload + url >> vul.txt
+- or printf "[*]\t%s\n\n" i, payload + url >> vul.txt
