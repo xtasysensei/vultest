@@ -14,6 +14,7 @@ from lib.crawler import *
 from lib.Log import *
 from core.core import *
 
+
 # Style class
 class Style:
     reset = '\033[0m'
@@ -35,9 +36,9 @@ epilog = f"""
 def check(getopt):
     payload = int(getopt.payload_level)
     if payload > 6 and getopt.payload is None:
-        payload = core.generate(radint(0, 6))
+        payload = Core.generate(randint(0, 6))
     else:
-        payload = core.generate(payload)
+        payload = Core.generate(payload)
 
     return payload if getopt.payload is None else getopt.payload
 
@@ -54,11 +55,12 @@ def start():
     pos_opt.add_argument("--depth", metavar="",
                          help="Depth web page to crawl. Default: 2", default=2)
     pos_opt.add_argument("--payload-level", metavar="",
-                         help="Level for payload Generator, 7 for custom payload. {1...6}. Default: 6", default=6) 
+                         help="Level for payload Generator, 7 for custom payload. {1...6}. Default: 6", default=6)
     pos_opt.add_argument("--payload", metavar="",
                          help="Load custom payload directly (e.g. <script>alert(2005)</script>)", default=None)
     pos_opt.add_argument("--method", metavar="",
-                         help="Method setting(s): \n\t0: GET\n\t1: POST\n\t2: GET and POST (default)", default=2, type=int)
+                         help="Method setting(s): \n\t0: GET\n\t1: POST\n\t2: GET and POST (default)", default=2,
+                         type=int)
     pos_opt.add_argument("--user-agent", metavar="",
                          help="Request user agent (e.g. Chrome/2.1.1/...)", default=agent)
     pos_opt.add_argument("--single", metavar="",
@@ -74,14 +76,14 @@ def start():
     print(" ")
     print(f"{Style.bold}{Style.blue} Anti-Xss{Style.reset}{Style.cyan}")
     if getopt.u:
-        core.main(getopt.u, getopt.proxy, getopt.user_agent,
+        Core.main(getopt.u, getopt.proxy, getopt.user_agent,
                   check(getopt), getopt.cookie, getopt.method)
 
-        crawler.crawl(getopt.u, int(getopt.depth), getopt.proxy,
+        Crawler.crawl(getopt.u, int(getopt.depth), getopt.proxy,
                       getopt.user_agent, check(getopt), getopt.method, getopt.cookie)
 
     elif getopt.single:
-        core.main(getopt.single, getopt.proxy, getopt.user_agent,
+        Core.main(getopt.single, getopt.proxy, getopt.user_agent,
                   check(getopt), getopt.cookie, getopt.method)
     elif getopt.about:
         print(f"""
@@ -96,9 +98,9 @@ Please Don't Use it for Any Bad or Illegal Purpose.
 
 if __name__ == "__main__":
     try:
-      start()
+        start()
     except KeyboardInterrupt:
-      print(f"""
+        print(f"""
 ************************
 {yellow}Xss Scan cancelled {end}
 ************************

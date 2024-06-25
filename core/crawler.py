@@ -9,34 +9,34 @@ class LinkParser(HTMLParser):
         if tag == 'a':
             for (key, value) in attrs:
                 if key == 'href':
-                    newUrl = parse.urljoin(self.baseUrl, value)
-                    self.links = self.links + [newUrl]
+                    new_url = parse.urljoin(self.baseUrl, value)
+                    self.links = self.links + [new_url]
 
-    def getLinks(self, url):
+    def get_links(self, url):
         self.links = []
         self.baseUrl = url
         response = urlopen(url)
         if response.getheader('Content-Type') == 'text/html':
-            htmlBytes = response.read()
-            htmlString = htmlBytes.decode("utf-8")
-            self.feed(htmlString)
-            return htmlString, self.links
+            html_bytes = response.read()
+            html_string = html_bytes.decode("utf-8")
+            self.feed(html_string)
+            return html_string, self.links
         else:
             return "", []
 
 
-def spider(url, maxPages):
+def spider(url, max_pages):
     links = []
-    pagesToVisit = [url]
-    numberVisited = 0
-    foundWord = False
-    while numberVisited < maxPages and pagesToVisit != [] and not foundWord:
-        numberVisited = numberVisited + 1
-        url = pagesToVisit[0]
-        pagesToVisit = pagesToVisit[1:]
+    pages_to_visit = [url]
+    number_visited = 0
+    found_word = False
+    while number_visited < max_pages and pages_to_visit != [] and not found_word:
+        number_visited = number_visited + 1
+        url = pages_to_visit[0]
+        pages_to_visit = pages_to_visit[1:]
         try:
             parser = LinkParser()
-            data, links = parser.getLinks(url)
+            data, links = parser.get_links(url)
         except Exception as e:
             pass
         return links

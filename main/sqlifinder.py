@@ -55,7 +55,7 @@ def main():
     parser.add_argument('-s', '--subs', help='Set false or true [ex: --subs False]', default=False)
     args = parser.parse_args()
 
-    if args.subs == True:
+    if args.subs:
         url = f"http://web.archive.org/cdx/search/cdx?url=*.{args.domain}/*&output=txt&fl=original&collapse=urlkey&page=/"
     else:
         url = f"http://web.archive.org/cdx/search/cdx?url={args.domain}/*&output=txt&fl=original&collapse=urlkey&page=/"
@@ -66,7 +66,7 @@ def main():
     response = requester.connector(url)
     crawled_urls = crawler.spider(f"http://{args.domain}", 10)
     response = concatenate_list_data(crawled_urls, response)
-    if response == False:
+    if not response:
         return
     response = unquote(response)
     print(" ")

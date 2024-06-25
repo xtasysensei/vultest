@@ -10,13 +10,13 @@ from lib.helper import *
 from urllib.parse import urljoin
 from multiprocessing import Process
 
-# Crawler Class.
-class crawler:
 
+# Crawler Class.
+class Crawler:
     visited = []
 
     @classmethod
-    def getLinks(self, base, proxy, headers, cookie):
+    def get_links(cls, base, proxy, headers, cookie):
 
         lst = []
 
@@ -33,28 +33,28 @@ class crawler:
             elif url.startswith("mailto:") or url.startswith("javascript:"):
                 continue
 
-            elif urljoin(base, url) in self.visited:
+            elif urljoin(base, url) in cls.visited:
                 continue
 
             else:
                 lst.append(urljoin(base, url))
-                self.visited.append(urljoin(base, url))
+                cls.visited.append(urljoin(base, url))
 
         return lst
 
     @classmethod
-    def crawl(self, base, depth, proxy, headers, level, method, cookie):
+    def crawl(cls, base, depth, proxy, headers, level, method, cookie):
 
-        urls = self.getLinks(base, proxy, headers, cookie)
+        urls = cls.get_links(base, proxy, headers, cookie)
 
         for url in urls:
 
-            p = Process(target=core.main, args=(
+            p = Process(target=Core.main, args=(
                 url, proxy, headers, level, cookie, method))
             p.start()
             p.join()
             if depth != 0:
-                self.crawl(url, depth-1, base, proxy, level, method, cookie)
+                cls.crawl(url, depth - 1, base, proxy, level, method, cookie)
 
             else:
                 break

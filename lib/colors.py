@@ -1,14 +1,15 @@
 import sys
 import os
 import platform
+
 colors = True  # Output should be colored
 machine = sys.platform  # Detecting the os of current system
-checkplatform = platform.platform() # Get current version of OS
+checkplatform = platform.platform()  # Get current version of OS
 if machine.lower().startswith(('os', 'win', 'darwin', 'ios')):
     colors = False  # Colors shouldn't be displayed in mac & windows
 if checkplatform.startswith("Windows-10") and int(platform.version().split(".")[2]) >= 10586:
     colors = True
-    os.system('')   # Enables the ANSI
+    os.system('')  # Enables the ANSI
 if not colors:
     end = red = white = green = yellow = purple = run = bad = good = bold = info = que = ''
 else:
@@ -16,7 +17,7 @@ else:
     green = '\033[92m'
     red = '\033[91m'
     yellow = '\033[93m'
-    purple='\033[35m'
+    purple = '\033[35m'
     end = '\033[0m'
     back = '\033[7;91m'
     bold = '\033[1m'
@@ -27,6 +28,6 @@ else:
     good = '\033[92m[+]\033[0m'
     run = '\033[97m[~]\033[0m'
     grey = '\033[7;90m'
-    cyan='\u001B[36m'
+    cyan = '\u001B[36m'
     gray = '\033[90m'
-    reset='\033[0m'
+    reset = '\033[0m'

@@ -5,6 +5,7 @@
 import json
 import requests
 
+
 # Style class
 class Style:
     reset = '\033[0m'
@@ -24,11 +25,11 @@ line = "—————————————————"
 
 
 def session(proxies, headers, cookie):
-    requestVariable = requests.Session()
-    requestVariable.proxies = proxies
-    requestVariable.headers = headers
-    requestVariable.cookies.update(json.loads(cookie))
-    return requestVariable
+    request_variable = requests.Session()
+    request_variable.proxies = proxies
+    request_variable.headers = headers
+    request_variable.cookies.update(json.loads(cookie))
+    return request_variable
 
 
 logo = f"""{Style.bold}{Style.yellow}
