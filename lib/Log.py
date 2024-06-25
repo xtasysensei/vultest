@@ -19,13 +19,13 @@ C = '\033[1;36m'
 class Log:
 
     @classmethod
-    def info(self, text):
+    def info(cls, text):
         print("[" + Y + "*" + N + "] [" + G + "INFO" + N + "] " + text)
 
     @classmethod
-    def warning(self, text):
+    def warning(cls, text):
         print("[" + Y + "+" + N + "] [" + Y + "WARNING" + N + "] " + text)
 
     @classmethod
-    def high(self, text):
+    def high(cls, text):
         print("[" + Y + "-" + N + "] [" + R + "CRITICAL" + N + "] " + text)

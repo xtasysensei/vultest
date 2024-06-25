@@ -1,6 +1,7 @@
-from html.parser import HTMLParser  
-from urllib.request import urlopen  
+from html.parser import HTMLParser
+from urllib.request import urlopen
 from urllib import parse
+
 
 class LinkParser(HTMLParser):
 
@@ -15,27 +16,28 @@ class LinkParser(HTMLParser):
         self.links = []
         self.baseUrl = url
         response = urlopen(url)
-        if response.getheader('Content-Type')=='text/html':
+        if response.getheader('Content-Type') == 'text/html':
             htmlBytes = response.read()
             htmlString = htmlBytes.decode("utf-8")
             self.feed(htmlString)
             return htmlString, self.links
         else:
-            return "",[]
+            return "", []
+
 
 def spider(url, maxPages):
-    links = [] 
+    links = []
     pagesToVisit = [url]
     numberVisited = 0
     foundWord = False
     while numberVisited < maxPages and pagesToVisit != [] and not foundWord:
-        numberVisited = numberVisited +1
+        numberVisited = numberVisited + 1
         url = pagesToVisit[0]
         pagesToVisit = pagesToVisit[1:]
         try:
             parser = LinkParser()
             data, links = parser.getLinks(url)
-        except:
+        except Exception as e:
             pass
         return links
 
