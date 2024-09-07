@@ -218,7 +218,7 @@ class Core:
     @classmethod
     def main(cls, url, proxy, headers, payload, cookie, method=2):
 
-        print(W + "*" * 15)
+        print(W + "*" * 40)
         cls.payload = payload
         cls.url = url
 

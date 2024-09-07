@@ -1,8 +1,8 @@
 import requests
 import random
-from frosch import hook
+#from frosch import hook
 
-hook()
+#hook()
 
 
 def connector(url):

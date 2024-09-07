@@ -2,10 +2,10 @@ import re
 
 
 def param_extract(response, level, black_list, placeholder):
-    '''
+    """
     regexp : r'.*?:\/\/.*\?.*\=[^$]'
     regexp : r'.*?:\/\/.*\?.*\='
-    '''
+    """
 
     parsed = list(set(re.findall(r'.*?:\/\/.*\?.*\=[^$]', response)))
     final_uris = []
